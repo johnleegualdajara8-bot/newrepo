@@ -1,0 +1,93 @@
+/* General App Styling */
+.container {
+  text-align: center;
+  padding: 30px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #111; /* Dark background for movie feel */
+  color: white;
+}
+
+/* Layout for the Movie Grids */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px; /* Space for the zoom effect */
+  margin-top: 30px;
+  padding: 20px;
+}
+
+/* The Movie Card */
+.movie-card {
+  position: relative;
+  width: 180px;
+  height: 270px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), z-index 0s;
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The Context/Info Overlay (hidden by default) */
+.movie-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,1) 15%, rgba(0,0,0,0.6) 60%, transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 15px;
+  box-sizing: border-box;
+  opacity: 0; /* Makes it invisible */
+  transition: opacity 0.3s ease;
+  text-align: left;
+}
+
+.movie-info h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #ff4d4d; /* Highlighting the title */
+}
+
+.genre-tag {
+  font-size: 0.7rem;
+  color: #ccc;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.movie-info p {
+  font-size: 0.75rem;
+  color: #eee;
+  margin: 5px 0 0;
+  line-height: 1.2;
+}
+
+/* THE HOVER TRIGGER */
+.movie-card:hover {
+  transform: scale(1.3); /* Image gets bigger */
+  z-index: 99; /* Brings the card to the very front */
+}
+
+.movie-card:hover .movie-info {
+  opacity: 1; /* Shows the context info */
+}
+
+/* Header & Footer */
+header, footer {
+  background: #222;
+  color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+}
